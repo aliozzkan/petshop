@@ -1,14 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider as ReduxProvider } from "react-redux";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import "./index.css";
+import App from "./App";
+import { store } from "store";
+import reportWebVitals from "./reportWebVitals";
+
+const theme = extendTheme({
+  config: {
+    useSystemColorMode: true,
+  },
+});
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <ReduxProvider {...{ store }}>
+    <ChakraProvider resetCSS theme={theme}>
+      <App />
+    </ChakraProvider>
+  </ReduxProvider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
