@@ -1,10 +1,11 @@
 import React, { ReactElement } from "react";
-import FindPet from "./components/pages/Home";
+import Home from "./components/pages/Home";
+import "./i18n";
 
 import "./App.css";
 
 function App() {
-  return <FindPet />;
+  return <Home />;
 }
 
 export default App;
